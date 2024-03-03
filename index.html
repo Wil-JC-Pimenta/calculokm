@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Gasto de Viagem</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+
+  .container {
+    max-width: 400px;
+    margin: 50px auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+  }
+  header{
+    text-align: center;
+  }
+
+  label, input {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  button {
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  #result {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #e9ecef;
+  }
+
+  footer{
+    text-align: center;
+  }
+
+</style>
+</head>
+<body>
+
+
+
+  <div class="container">
+    <h2>Calculadora de Gasto de Viagem</h2>
+    <label for="distancia">Distância da Viagem (km):</label>
+    <input type="number" id="distancia" placeholder="Distância da viagem">
+
+    <label for="consumo">Consumo Médio (km/l):</label>
+    <input type="number" id="consumo" placeholder="Consumo médio do veículo">
+
+    <label for="preco">Preço do Combustível por Litro (R$):</label>
+    <input type="number" id="preco" placeholder="Preço do combustível">
+
+    <label for="combustivel">Tipo de Combustível:</label>
+    <select id="combustivel">
+      <option value="gasolina">Gasolina</option>
+      <option value="alcool">Álcool</option>
+    </select>
+
+    <button onclick="calcularGasto()">Calcular</button>
+
+    <div id="result"></div>
+  </div>
+
+  <footer>
+
+<h6>Desenvolvidor por Wilker Pimenta </h6>
+  </footer>  
+
+  <script>
+    function calcularGasto() {
+      const distancia = parseFloat(document.getElementById('distancia').value);
+      const consumo = parseFloat(document.getElementById('consumo').value);
+      const preco = parseFloat(document.getElementById('preco').value);
+      const combustivel = document.getElementById('combustivel').value;
+
+      let custoTotal;
+
+      if (combustivel === 'gasolina') {
+        custoTotal = (distancia / consumo) * preco;
+      } else if (combustivel === 'alcool') {
+        custoTotal = ((distancia / consumo) * preco) * 0.7; // Álcool é em média 30% mais barato que a gasolina
+      }
+
+      document.getElementById('result').innerText = `O custo estimado da viagem é R$ ${custoTotal.toFixed(2)}`;
+    }
+  </script>
+</body>
+</html>
