@@ -89,22 +89,23 @@
   </footer>  
 
   <script>
-    function calcularGasto() {
-      const distancia = parseFloat(document.getElementById('distancia').value);
-      const consumo = parseFloat(document.getElementById('consumo').value);
-      const preco = parseFloat(document.getElementById('preco').value);
-      const combustivel = document.getElementById('combustivel').value;
+  <script>
+  function calcularGasto() {
+  const distancia = parseFloat(document.getElementById('distancia').value);
+  const consumo = parseFloat(document.getElementById('consumo').value);
+  const preco = parseFloat(document.getElementById('preco').value);
+  const combustivel = document.getElementById('combustivel').value;
 
-      let custoTotal;
+  let custoTotal;
 
-      if (combustivel === 'gasolina') {
-        custoTotal = (distancia / consumo) * preco;
-      } else if (combustivel === 'alcool') {
-        custoTotal = ((distancia / consumo) * preco) * 0.7; // Álcool é em média 30% mais barato que a gasolina
-      }
+  if (combustivel === 'gasolina') {
+    custoTotal = (distancia / consumo) * preco;
+  } else if (combustivel === 'alcool') {
+    custoTotal = (distancia / consumo) * preco;
+  }
 
-      document.getElementById('result').innerText = `O custo estimado da viagem é R$ ${custoTotal.toFixed(2)}`;
-    }
+  document.getElementById('result').innerText = `O custo estimado da viagem é R$ ${custoTotal.toFixed(2)}`;
+}
   </script>
 </body>
 </html>
