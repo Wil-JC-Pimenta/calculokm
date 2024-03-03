@@ -46,9 +46,7 @@
   #result {
     margin-top: 20px;
     padding: 10px;
-    border: 1px solid #ccc;
     border-radius: 5px;
-    background-color: #e9ecef;
   }
 
   footer{
@@ -85,9 +83,8 @@
 
   <footer>
 
-  <h6>Desenvolvidor por Wilker Pimenta </h6>
+<h6>Desenvolvidor por Wilker Pimenta </h6>
   </footer>  
-
 
   <script>
   function calcularGasto() {
@@ -100,12 +97,16 @@
 
   if (combustivel === 'gasolina') {
     custoTotal = (distancia / consumo) * preco;
+    document.getElementById('result').style.backgroundColor = 'yellow';
+    document.getElementById('result').innerText = `O custo estimado da viagem em gasolina é R$ ${custoTotal.toFixed(2)}`;
   } else if (combustivel === 'alcool') {
     custoTotal = (distancia / consumo) * preco;
+    document.getElementById('result').style.backgroundColor = 'green';
+    document.getElementById('result').innerText = `O custo estimado da viagem em álcool é R$ ${custoTotal.toFixed(2)}`;
   }
 
-  document.getElementById('result').innerText = `O custo estimado da viagem é R$ ${custoTotal.toFixed(2)}`;
 }
-</script>
+
+  </script>
 </body>
 </html>
